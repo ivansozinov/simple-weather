@@ -7,6 +7,7 @@ import './App.css'
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(positionSuccess, positionError, { maximumAge: 600_000 })
@@ -18,13 +19,13 @@ function App() {
       coords.longitude,
       Intl.DateTimeFormat().resolvedOptions().timeZone
     ).then((data) => {
-        setWeatherData(data)
-        setIsLoading(false)
+        setWeatherData(data);
+        setIsLoading(false);
       })
       .catch(e => {
         console.error(e)
-        alert("Error getting weather.")
-        setIsLoading(false)
+        setIsError(true);
+        setIsLoading(false);
       })
   }
 
@@ -32,6 +33,7 @@ function App() {
     alert(
       "There was an error getting your location. Please allow us to use your location and refresh the page."
     )
+    setIsError(true)
   }
 
   function getCurrentPosition() {
@@ -41,7 +43,9 @@ function App() {
   
   return (
     <section className="weather-widget">
-      {isLoading
+      {isError
+      ? <div>Please allow us to use your location and refresh the page.</div>
+      : isLoading
           ? <div>Loading</div>
           : <>
               <LHTemp type="low" value={weatherData.lowTemp} />
@@ -52,7 +56,7 @@ function App() {
               </div>
               <LHTemp type="high" value={weatherData.highTemp} />
             </>
-      }
+        }
     </section>
   )
 }
