@@ -1,8 +1,6 @@
 export default function Point(props) {
     const {type, value, leftOffset, direction} = props;
 
-    console.log('tempDirection', direction);
-
     let style = {};
 
     if(leftOffset) {

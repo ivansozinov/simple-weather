@@ -44,8 +44,6 @@ function App() {
       <section className="weather-widget">Please allow us to use your location and refresh the page.</section>
     )
   }
-
-  console.log('weatherData', weatherData);
   
   return (
     <section className="weather-widget">
