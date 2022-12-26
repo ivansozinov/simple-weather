@@ -31,15 +31,12 @@ function App() {
   }
 
   function positionError() {
-    alert(
-      "There was an error getting your location. Please allow us to use your location and refresh the page."
-    )
-    setIsError(true)
+    alert("There was an error getting your location. Please allow us to use your location and refresh the page.");
+    setIsError(true);
   }
 
   function getCurrentPosition() {
-    const offset = Math.round((weatherData.currentTemp-weatherData.lowTemp)*(100/(weatherData.highTemp-weatherData.lowTemp)));
-    return offset;
+    return Math.round((weatherData.currentTemp-weatherData.lowTemp)*(100/(weatherData.highTemp-weatherData.lowTemp)));
   }
 
   if(isError) {

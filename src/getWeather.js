@@ -1,9 +1,7 @@
 import axios from "axios"
 
 export function getWeather(lat, lon, timezone) {
-  return axios
-    .get(
-      "https://api.open-meteo.com/v1/forecast?daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&timeformat=unixtime",
+  return axios.get("https://api.open-meteo.com/v1/forecast?daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&timeformat=unixtime",
       {
         params: {
           latitude: lat,

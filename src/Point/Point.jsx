@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Point(props) {
     const {type, value, leftOffset} = props;
 
