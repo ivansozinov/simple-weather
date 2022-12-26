@@ -1,0 +1,44 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.temp-line {
+  width: 30em;
+  height: 1em;
+  border: 1px solid #646cff;
+  border-radius: 2em;
+  background: linear-gradient(to right, blue, red);
+  position: relative;
+}
+
+.temp-line > .temp-slider {
+  margin-right: 1em;
+  position: relative;
+}
+
+.temp-line .day-current, .temp-line .temp-low, .temp-line .temp-high {
+  position: absolute;
+}
+
+.temp-low {
+  left: -2em;
+  top: -0.2em;
+  padding: 0;
+}
+
+.temp-high {
+  right: -2em;
+  top: -0.2em;
+}
+
+.day-current::before {
+  content: ' ';
+  display: block;
+  height: .9em;
+  width: .9em;
+  border: 1px solid orange;
+  border-radius: 100%;
+}
