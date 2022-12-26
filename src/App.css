@@ -1,16 +1,10 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .weather-widget {
   display: flex;
   flex-direction: row;
   flex-wrap: no-wrap;
   width: 100%;
   align-items: center;
+  justify-content: center;
 }
 
 .weather-widget > div {
@@ -44,8 +38,8 @@
 .day-current::before {
   content: ' ';
   display: block;
-  height: .9em;
-  width: .9em;
-  border: 1px solid orange;
+  height: 1em;
+  width: 1em;
+  box-shadow: 0 0 0 1px orange inset;
   border-radius: 100%;
 }
