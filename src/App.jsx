@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Point from './Point/Point'
 import LHTemp from './LHTemp/LHTemp'
 import { getWeather } from './getWeather'
+import { ICON_MAP } from './weatherIconMap'
 import './App.css'
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
     return offset;
   }
 
+  function getIconUrl(iconCode) {
+    return ICON_MAP.get(iconCode)
+  }
+
   if(isError) {
     return (
       <section className="weather-widget"><p>Please allow us to use your location and refresh the page.</p></section>
@@ -55,6 +60,7 @@ function App() {
             <LHTemp type="low" value={weatherData.lowTemp} />
             <div className='temp-line'>
               <div className="temp-slider">
+                <div className='weather-icon' style={{ backgroundImage: `url(/weather_icons/${getIconUrl(weatherData.iconCode)}.svg)` }}></div>
                 <Point type="current" value={weatherData.currentTemp} leftOffset={getCurrentPosition()} />
               </div>
             </div>
