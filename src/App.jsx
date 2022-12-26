@@ -44,6 +44,8 @@ function App() {
       <section className="weather-widget">Please allow us to use your location and refresh the page.</section>
     )
   }
+
+  console.log('weatherData', weatherData);
   
   return (
     <section className="weather-widget">
@@ -54,7 +56,7 @@ function App() {
             <div className='temp-line'>
               <div className="temp-slider">
                 <Icon iconCode={weatherData.iconCode} />
-                <Point type="current" value={weatherData.currentTemp} leftOffset={getCurrentPosition()} />
+                <Point type="current" value={weatherData.currentTemp} direction={weatherData.tempDirection} leftOffset={getCurrentPosition()} />
               </div>
             </div>
             <LHTemp type="high" value={weatherData.highTemp} />

@@ -1,5 +1,7 @@
 export default function Point(props) {
-    const {type, value, leftOffset} = props;
+    const {type, value, leftOffset, direction} = props;
+
+    console.log('tempDirection', direction);
 
     let style = {};
 
@@ -10,6 +12,6 @@ export default function Point(props) {
     }
 
     return (
-        <div style={style} className={'day-' + type}><span>{value}&deg;</span></div>
+        <div style={style} data-direction={direction} className={'day-' + type + ' direction-' + direction}><span>{value}&deg;</span></div>
     )
 }

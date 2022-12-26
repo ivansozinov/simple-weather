@@ -54,3 +54,21 @@
   box-shadow: 0 0 0 1px orange inset;
   border-radius: 100%;
 }
+
+.day-current.direction-left::after, .day-current.direction-right::after {
+  display: block;
+  position: absolute;
+  height: 1em;
+  width: 1em;
+  top: -0.3em;
+}
+
+.day-current.direction-right::after {
+  content: '→';
+  right: -0.6em;
+}
+
+.day-current.direction-left::after {
+  content: '←';
+  left: -1.1em;
+}
