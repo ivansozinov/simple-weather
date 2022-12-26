@@ -40,22 +40,26 @@ function App() {
     const offset = Math.round((weatherData.currentTemp-weatherData.lowTemp)*(100/(weatherData.highTemp-weatherData.lowTemp)));
     return offset;
   }
+
+  if(isError) {
+    return (
+      <section className="weather-widget"><p>Please allow us to use your location and refresh the page.</p></section>
+    )
+  }
   
   return (
     <section className="weather-widget">
-      {isError
-      ? <div>Please allow us to use your location and refresh the page.</div>
-      : isLoading
-          ? <div>Loading</div>
-          : <>
-              <LHTemp type="low" value={weatherData.lowTemp} />
-              <div className='temp-line'>
-                <div className="temp-slider">
-                  <Point type="current" value={weatherData.currentTemp} leftOffset={getCurrentPosition()} />
-                </div>
+      {isLoading
+        ? <div>Loading</div>
+        : <>
+            <LHTemp type="low" value={weatherData.lowTemp} />
+            <div className='temp-line'>
+              <div className="temp-slider">
+                <Point type="current" value={weatherData.currentTemp} leftOffset={getCurrentPosition()} />
               </div>
-              <LHTemp type="high" value={weatherData.highTemp} />
-            </>
+            </div>
+            <LHTemp type="high" value={weatherData.highTemp} />
+          </>
         }
     </section>
   )
