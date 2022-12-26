@@ -8,7 +8,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(positionSuccess, positionError)
+    navigator.geolocation.getCurrentPosition(positionSuccess, positionError, { maximumAge: 600_000 })
   }, []);
 
   function positionSuccess({ coords }) {
