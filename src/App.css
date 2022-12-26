@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+.weather-widget {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  width: 100%;
+  align-items: center;
+}
+
+.weather-widget > div {
+  margin: 0 0.3em;
+}
+
 .temp-line {
   width: 30em;
   height: 1em;
@@ -25,19 +37,8 @@
   position: relative;
 }
 
-.temp-line .day-current, .temp-line .temp-low, .temp-line .temp-high {
+.temp-slider .day-current {
   position: absolute;
-}
-
-.temp-low {
-  left: -2em;
-  top: -0.2em;
-  padding: 0;
-}
-
-.temp-high {
-  right: -2em;
-  top: -0.2em;
 }
 
 .day-current::before {

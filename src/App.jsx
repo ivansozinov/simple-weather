@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Point from './Point/Point'
+import LHTemp from './LHTemp/LHTemp'
 import { getWeather } from './getWeather'
 import './App.css'
 
@@ -42,13 +43,15 @@ function App() {
     <section className="weather-widget">
       {isLoading
           ? <div>Loading</div>
-          : <div className='temp-line'>
-              <div className="temp-slider">
-                <Point type="current" value={weatherData.currentTemp} leftOffset={getCurrentPosition()} />
+          : <>
+              <LHTemp type="low" value={weatherData.lowTemp} />
+              <div className='temp-line'>
+                <div className="temp-slider">
+                  <Point type="current" value={weatherData.currentTemp} leftOffset={getCurrentPosition()} />
+                </div>
               </div>
-              <div className='temp-low'>{weatherData.lowTemp}&deg;</div>
-              <div className='temp-high'>{weatherData.highTemp}&deg;</div>
-          </div>
+              <LHTemp type="high" value={weatherData.highTemp} />
+            </>
       }
     </section>
   )
